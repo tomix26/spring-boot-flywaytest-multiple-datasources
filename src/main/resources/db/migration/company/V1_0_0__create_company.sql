@@ -1,0 +1,8 @@
+CREATE SEQUENCE employee_seq START WITH 1 INCREMENT BY 50;
+
+CREATE TABLE employee
+(
+    id   BIGINT NOT NULL,
+    name VARCHAR(255),
+    CONSTRAINT pk_employee PRIMARY KEY (id)
+);

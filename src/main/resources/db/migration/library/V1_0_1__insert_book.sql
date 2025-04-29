@@ -1,0 +1,1 @@
+INSERT INTO book VALUES ('my book');

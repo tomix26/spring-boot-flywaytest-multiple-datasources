@@ -1,0 +1,8 @@
+CREATE SEQUENCE book_seq START WITH 1 INCREMENT BY 50;
+
+CREATE TABLE book
+(
+    id   BIGINT NOT NULL,
+    name VARCHAR(255),
+    CONSTRAINT pk_book PRIMARY KEY (id)
+);
