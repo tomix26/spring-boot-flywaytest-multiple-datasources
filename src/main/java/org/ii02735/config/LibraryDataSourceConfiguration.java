@@ -1,14 +1,17 @@
 package org.ii02735.config;
 
-import javax.sql.DataSource;
-
 import org.ii02735.entity.library.Book;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceProperties;
 import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.boot.orm.jpa.EntityManagerFactoryBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
+
+import javax.sql.DataSource;
 
 @Configuration
 @EnableTransactionManagement
@@ -31,5 +34,15 @@ public class LibraryDataSourceConfiguration {
         return libraryDataSourceProperties()
         .initializeDataSourceBuilder()
         .build();
+    }
+
+    @Bean
+    public LocalContainerEntityManagerFactoryBean libraryEntityManagerFactory(
+            @Qualifier("libraryDataSource") DataSource libraryDataSource,
+            EntityManagerFactoryBuilder builder) {
+        return builder
+                .dataSource(libraryDataSource)
+                .packages(Book.class)
+                .build();
     }
 }
