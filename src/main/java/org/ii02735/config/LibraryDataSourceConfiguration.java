@@ -16,7 +16,7 @@ import javax.sql.DataSource;
 @Configuration
 @EnableTransactionManagement
 @EnableJpaRepositories(
-    basePackageClasses = Book.class,
+    basePackages = "org.ii02735.repository.library",
     entityManagerFactoryRef = "libraryEntityManagerFactory",
     transactionManagerRef = "libraryTransactionManager"
 )
