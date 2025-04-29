@@ -14,6 +14,7 @@ public class FlywayConfiguration {
         return Flyway.configure()
                 .baselineOnMigrate(true)
                 .validateOnMigrate(true)
+                .locations("db/migration/company")
                 .dataSource(companyDataSource)
                 .load();
     }
@@ -23,6 +24,7 @@ public class FlywayConfiguration {
         return Flyway.configure()
                 .baselineOnMigrate(true)
                 .validateOnMigrate(true)
+                .locations("db/migration/library")
                 .dataSource(libraryDataSource)
                 .load();
     }

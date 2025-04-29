@@ -1,1 +1,1 @@
-INSERT INTO company VALUES ('John');
+INSERT INTO employee (name) VALUES ('John');
