@@ -15,9 +15,7 @@ import org.springframework.test.context.support.DependencyInjectionTestExecution
 import static org.assertj.core.api.Assertions.assertThat;
 
 @SpringBootTest
-@ExtendWith(FlywayTestExtension.class)
 @AutoConfigureEmbeddedDatabase(beanName = "libraryDataSource")
-@TestExecutionListeners({DependencyInjectionTestExecutionListener.class, OptimizedFlywayTestExecutionListener.class })
 @FlywayTest(flywayName = "libraryFlyway")
 class InsertingBookTest {
 
